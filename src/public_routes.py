@@ -35,7 +35,7 @@ def contact_admin():
 
     # Compose email content
     html = f"""
-    <h3>New Contact Message from ThirdShift Portal</h3>
+    <h3>New Contact Message from MTM Group Portal</h3>
     <p><b>From:</b> {email}</p>
     <p><b>Phone:</b> {phone or 'N/A'}</p>
     <p><b>Message:</b></p>
@@ -44,6 +44,6 @@ def contact_admin():
 
     # Send to all admins
     for a in admins:
-        send_mail(a["email"], "New Contact Message - ThirdShift Portal", html)
+        send_mail(a["email"], "New Contact Message - MTM Group Portal", html)
 
     return jsonify({"message": "Message sent to admin(s)"}), 200

@@ -170,7 +170,7 @@ def forgot_password():
     otp_code = create_otp(user["id"])  # ✅ use the user_id instead of email
 
     # Send email
-    subject = "Third Shift Media – Password Reset OTP"
+    subject = "MTM Group – Password Reset OTP"
     body = f"Your OTP to reset password is: {otp_code}\n\nThis code will expire in 10 minutes."
     send_mail(email, subject, body)
 
