@@ -158,8 +158,9 @@ def delete_user(user_id):
             # Send email notification
             html = f"""
                 <p>Dear {user['first_name']},</p>
-                <p>Your account on the <b>ThirdShift Portal</b> has been deleted by an administrator.</p>
+                <p>Your account on the <b>MTM Group Portal</b> has been deleted by an administrator.</p>
                 <p>If you believe this was a mistake, please contact the admin team.</p>
+                <p><a href="https://www.mtmgroup.agency/#contact" target="_blank">Click here to contact admin</a></p>
                 <p>— MTM Group</p>
             """
             send_mail(user["email"], "Account Deleted - MTM Group Portal", html)
