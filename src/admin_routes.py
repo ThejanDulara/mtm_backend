@@ -73,7 +73,7 @@ def approve_user():
         html = f"""
         <p>Hello {user['first_name']},</p>
         <p>Your account has been approved! 🎉</p>
-        <p>You can now log in and access the ThirdShift Portal by clicking the link below:</p>
+        <p>You can now log in and access the MTM Group Portal by clicking the link below:</p>
         <p><a href="https://www.mtmgroup.agency/signin" target="_blank">Click here to access the portal</a></p>
         <p>Welcome aboard,<br>Team MTM</p>
         """
@@ -115,8 +115,8 @@ def reject_user():
                 <p>We appreciate your interest in joining the <b>ThirdShift Portal</b>.</p>
                 <p>However, your account registration request has been <b>rejected</b> by the administrator.</p>
                 <p>If you believe this was an error or would like to reapply, please contact our admin team.</p>
-                <p><a href="https://www.mtmgroup.agency/#contact" target="_blank">Click here to contact admin</a></p>
-                <p>— MTM Group </p>
+                <p><a href="https://www.mtmgroup.agency" target="_blank">Click here to contact admin</a></p>
+                <p>— MTM Group — </p>
             """
             send_mail(user["email"], "Account Rejected - MTM Group Portal", html)
 
@@ -160,8 +160,8 @@ def delete_user(user_id):
                 <p>Dear {user['first_name']},</p>
                 <p>Your account on the <b>MTM Group Portal</b> has been deleted by an administrator.</p>
                 <p>If you believe this was a mistake, please contact the admin team.</p>
-                <p><a href="https://www.mtmgroup.agency/#contact" target="_blank">Click here to contact admin</a></p>
-                <p>— MTM Group</p>
+                <p><a href="https://www.mtmgroup.agency" target="_blank">Click here to contact admin</a></p>
+                <p>— MTM Group — </p>
             """
             send_mail(user["email"], "Account Deleted - MTM Group Portal", html)
 
