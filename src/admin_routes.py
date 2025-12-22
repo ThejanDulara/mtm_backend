@@ -63,6 +63,7 @@ def approve_user():
         cursorclass=pymysql.cursors.DictCursor,
         autocommit=True
     )
+
     with conn.cursor() as cur:
         cur.execute("UPDATE user SET is_approved=1 WHERE id=%s", (user_id,))
         cur.execute("SELECT email, first_name FROM user WHERE id=%s", (user_id,))
@@ -77,9 +78,18 @@ def approve_user():
         <p><a href="https://www.mtmgroup.agency/signin" target="_blank">Click here to access the portal</a></p>
         <p>Welcome aboard,<br>Team MTM</p>
         """
-        send_mail(user["email"], "Account Approved - MTM Group Portal", html)
+        try:
+            send_mail(
+                user["email"],
+                "Account Approved - MTM Group Portal",
+                html
+            )
+        except Exception as e:
+            print("⚠️ Email sending failed:", str(e))
 
+    # ✅ THIS LINE FIXES EVERYTHING
     return jsonify({"message": "User approved"}), 200
+
 
 
 # ✅ Reject a user (remove + send rejection email)
@@ -118,7 +128,14 @@ def reject_user():
                 <p><a href="https://www.mtmgroup.agency" target="_blank">Click here to contact admin</a></p>
                 <p>— MTM Group — </p>
             """
-            send_mail(user["email"], "Account Rejected - MTM Group Portal", html)
+            try:
+                send_mail(
+                    user["email"],
+                    "Account Rejected - MTM Group Portal",
+                    html
+                )
+            except Exception as e:
+                print("⚠️ Email sending failed (reject):", e)
 
             # Delete user record
             cur.execute("DELETE FROM user WHERE id=%s", (user_id,))
@@ -163,7 +180,14 @@ def delete_user(user_id):
                 <p><a href="https://www.mtmgroup.agency" target="_blank">Click here to contact admin</a></p>
                 <p>— MTM Group — </p>
             """
-            send_mail(user["email"], "Account Deleted - MTM Group Portal", html)
+            try:
+                send_mail(
+                    user["email"],
+                    "Account Deleted - MTM Group Portal",
+                    html
+                )
+            except Exception as e:
+                print("⚠️ Email sending failed (delete):", e)
 
             return jsonify({"message": "User deleted and notified"}), 200
         else:
