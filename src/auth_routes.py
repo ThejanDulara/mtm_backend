@@ -101,7 +101,8 @@ def signin():
         additional_claims={
             "email": u["email"],
             "first_name": u["first_name"],
-            "is_admin": u["is_admin"]
+            "is_admin": u["is_admin"],
+            "can_update_data": u["can_update_data"]
         }
     )
 
@@ -145,7 +146,7 @@ def me():
     )
     with conn.cursor() as cur:
         cur.execute("""
-            SELECT id, first_name, last_name, email, designation, is_admin, profile_pic 
+            SELECT id, first_name, last_name, email, designation, is_admin, can_update_data, profile_pic 
             FROM user WHERE id=%s
         """, (user_id,))
         u = cur.fetchone()
