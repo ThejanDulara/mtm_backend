@@ -173,7 +173,13 @@ def forgot_password():
     # Send email
     subject = "MTM Group – Password Reset OTP"
     body = f"Your OTP to reset password is: {otp_code}\n\nThis code will expire in 10 minutes."
-    send_mail(email, subject, body)
+    try:
+        send_mail(email, subject, body)
+    except Exception as e:
+        print("⚠️ OTP email sending failed:", str(e))
+        return jsonify({
+            "error": "Unable to send OTP email at the moment. Please try again later."
+        }), 500
 
     return jsonify({"message": "OTP sent to your email"}), 200
 
