@@ -51,6 +51,7 @@ def create_app():
             "https://mo.mtmgroup.agency",
             "https://mmmr.mtmgroup.agency",
             "https://cts.mtmgroup.agency",
+            "https://pbi.mtmgroup.agency",
         ]
         # ✅ Dynamically handle future subdomains
         if origin and origin.endswith(".mtmgroup.agency"):
