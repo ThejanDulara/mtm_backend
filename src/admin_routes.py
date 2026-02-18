@@ -74,14 +74,14 @@ def approve_user():
         html = f"""
         <p>Hello {user['first_name']},</p>
         <p>Your account has been approved! 🎉</p>
-        <p>You can now log in and access the MTM Group Portal by clicking the link below:</p>
-        <p><a href="https://www.mtmgroup.agency/signin" target="_blank">Click here to access the portal</a></p>
-        <p>Welcome aboard,<br>Team MTM</p>
+        <p>You can now log in and access the Media Factory Portal by clicking the link below:</p>
+        <p><a href="https://www.mediafactorylk.agency/signin" target="_blank">Click here to access the portal</a></p>
+        <p>Welcome aboard,<br>Team Media Factory</p>
         """
         try:
             send_mail(
                 user["email"],
-                "Account Approved - MTM Group Portal",
+                "Account Approved - Media Factory Portal",
                 html
             )
         except Exception as e:
@@ -122,16 +122,16 @@ def reject_user():
             # Send rejection email
             html = f"""
                 <p>Dear {user['first_name']},</p>
-                <p>We appreciate your interest in joining the <b>ThirdShift Portal</b>.</p>
+                <p>We appreciate your interest in joining the <b>Media Factory Portal</b>.</p>
                 <p>However, your account registration request has been <b>rejected</b> by the administrator.</p>
                 <p>If you believe this was an error or would like to reapply, please contact our admin team.</p>
-                <p><a href="https://www.mtmgroup.agency" target="_blank">Click here to contact admin</a></p>
-                <p>— MTM Group — </p>
+                <p><a href="https://www.mediafactorylk.agency" target="_blank">Click here to contact admin</a></p>
+                <p>— Team Media Factory — </p>
             """
             try:
                 send_mail(
                     user["email"],
-                    "Account Rejected - MTM Group Portal",
+                    "Account Rejected - Media Factory Portal",
                     html
                 )
             except Exception as e:
@@ -175,15 +175,15 @@ def delete_user(user_id):
             # Send email notification
             html = f"""
                 <p>Dear {user['first_name']},</p>
-                <p>Your account on the <b>MTM Group Portal</b> has been deleted by an administrator.</p>
+                <p>Your account on the <b>Media Factory Portal</b> has been deleted by an administrator.</p>
                 <p>If you believe this was a mistake, please contact the admin team.</p>
-                <p><a href="https://www.mtmgroup.agency" target="_blank">Click here to contact admin</a></p>
-                <p>— MTM Group — </p>
+                <p><a href="https://www.mediafactorylk.agency" target="_blank">Click here to contact admin</a></p>
+                <p>— Team Media Factory — </p>
             """
             try:
                 send_mail(
                     user["email"],
-                    "Account Deleted - MTM Group Portal",
+                    "Account Deleted - Media Factory Portal",
                     html
                 )
             except Exception as e:
