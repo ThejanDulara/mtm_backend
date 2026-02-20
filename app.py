@@ -44,20 +44,20 @@ def create_app():
         allowed_origins = [
             "http://localhost:5173",
             "http://127.0.0.1:5173",
-            "https://www.mtmgroup.agency",
-            "https://copt.mtmgroup.agency",
-            "https://opt.mtmgroup.agency",
-            "https://tmrp.mtmgroup.agency",
-            "https://mo.mtmgroup.agency",
-            "https://mmmr.mtmgroup.agency",
-            "https://cts.mtmgroup.agency",
-            "https://pbi.mtmgroup.agency",
-            "https://pm.mtmgroup.agency",
-            "https://fe.mtmgroup.agency",
-            "https://bp.mtmgroup.agency",
+            "https://www.mediafactorylk.agency",
+            "https://copt.mediafactorylk.agency",
+            "https://opt.mediafactorylk.agency",
+            "https://tmrp.mediafactorylk.agency",
+            "https://mo.mediafactorylk.agency",
+            "https://mmmr.mediafactorylk.agency",
+            "https://cts.mediafactorylk.agency",
+            "https://pbi.mediafactorylk.agency",
+            "https://pm.mediafactorylk.agency",
+            "https://fe.mediafactorylk.agency",
+            "https://bp.mediafactorylk.agency",
         ]
         # ✅ Dynamically handle future subdomains
-        if origin and origin.endswith(".mtmgroup.agency"):
+        if origin and origin.endswith(".mediafactorylk.agency"):
             response.headers["Access-Control-Allow-Origin"] = origin
         elif origin in allowed_origins:
             response.headers["Access-Control-Allow-Origin"] = origin
