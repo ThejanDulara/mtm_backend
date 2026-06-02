@@ -55,6 +55,7 @@ def create_app():
             "https://pm.mediafactorylk.agency",
             "https://fe.mediafactorylk.agency",
             "https://bp.mediafactorylk.agency",
+            "https://dpt.mediafactorylk.agency",
         ]
         # ✅ Dynamically handle future subdomains
         if origin and origin.endswith(".mediafactorylk.agency"):
